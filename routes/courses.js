@@ -1,15 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var courses = require('../controllers/courses')
 /* GET courses listing. */
-router.get('/', function(req, res, next) {
-var config = require('../config');
-config.db(function (err, db) {
-if (err) throw err;
-db.collection('students').find().toArray(function (err, result) {
-if (err) throw err;
-res.render('courses', { 'title': 'Express',
-'data': result });
-})})});
-
+router.get('/', courses.list);
 module.exports = router;
