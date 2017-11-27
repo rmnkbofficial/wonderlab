@@ -1,7 +1,10 @@
-/* GET users listing. */
-var model = require('../model/users');
+/* CONTROLLER: GET users listing from MODEL. */
+var User = require('../model/users');
 exports.list= function(req, res, next) {
-var result = model.getAll( function(result) {
+User.find({}, function (err, result) {
+if (err) return next(err)
 res.render('users',
-{ 'title': 'Express', 'data': result });
-})}
+{ 'title': 'Express', 'data': result })
+})
+}
+

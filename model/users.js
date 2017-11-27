@@ -1,10 +1,17 @@
-var config = require('../config');
-exports.getAll = function(callback) {
-config.db(function (err, db) {
-if (err) throw err
-db.collection('users').find().toArray(function (err, result) {
-if (err) throw err
-callback(result)
-})
-})
-}
+/*MODEL: get Users Data from DB*/
+var mongoose = require('mongoose')
+var Schema = mongoose.Schema;
+var UserSchema = new Schema({
+firstName: String,
+lastName: String,
+email: String,
+login: {type: String, required: true},
+password: String
+});
+
+UserSchema.methods.generateNewPassword = function (cb){
+    this.password = 'new';
+    this.save(cb)
+};
+
+module.exports = mongoose.model('User', UserSchema);
