@@ -1,10 +1,9 @@
-/* CONTROLLER: GET users listing from MODEL. */
-var User = require('../model/users');
-exports.list= function(req, res, next) {
+/* CONTROLLER: RENDER LOGIN PAGE. */
+var User = require('../models/users');
+exports.list = function(req, res, next) {
 User.find({}, function (err, result) {
-if (err) return next(err)
+if (err) return next (err)
 res.render('users',
 { 'title': 'Express', 'data': result })
 })
-}
-
+};
