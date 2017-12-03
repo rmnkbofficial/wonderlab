@@ -2,6 +2,7 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
 var Schema = mongoose.Schema;
+
 var UserSchema = new Schema({
     
     firstName: {
@@ -11,12 +12,6 @@ var UserSchema = new Schema({
     
     lastName: {
     type: String,
-    required: true,
-    trim: true
-},
-    username: {
-    type: String,
-    unique: true,
     required: true,
     trim: true
 },
@@ -32,6 +27,17 @@ var UserSchema = new Schema({
     required: true,
     trim: true
 },
+
+    birthday: {
+        type: String,
+        required: true
+    },
+    
+    gender: {
+        type: String,
+        required: true
+    },
+    
     password: {
     type: String,
     required: true,
@@ -52,10 +58,6 @@ UserSchema.methods.createUser = function(callback){
 	});
 }
 
-UserSchema.methods.getUserByUsername = function(username, callback){
-	var query = {username: username};
-	this.findOne(query, callback);
-}
 
 UserSchema.methods.getUserById = function(id, callback){
 	this.findById(id, callback);
@@ -66,6 +68,28 @@ UserSchema.methods.comparePassword = function(candidatePassword, hash, callback)
     	if(err) throw err;
     	callback(null, isMatch);
 	});
+}
+
+UserSchema.statics.authenticate = function (email, password, callback) {
+    this.findOne({ email: email })
+    .exec(function (err, user) {
+      if (err) {
+        return callback(err)
+      } else if (!user) {
+        var err = new Error('User not found.');
+        err.status = 401;
+        return callback(err);
+      }
+      
+      bcrypt.compare(password, user.password, function (err, result) {
+        if (err) throw err;
+        else if (result === true) {
+          return callback(null, user);
+        } else {
+          return callback();
+        }
+      })
+    });
 }
 
 module.exports = mongoose.model('User', UserSchema);
