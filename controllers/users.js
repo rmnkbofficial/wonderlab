@@ -36,7 +36,10 @@ exports.login = function(req, res){
     if (err) console.log(err)
     else
     User.authenticate(id, pw, function(err){
-    if (err) console.log(err);
+    if (err) {
+    console.log(err);
+    alert("Wrong email or password.");
+    }
     else res.render('welcome', {"title": "Welcome"})
     
     })

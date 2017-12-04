@@ -15,9 +15,19 @@ var QuestionSchema = new Schema({
 });
 
 
-QuestionSchema.query.question = function (id, callback) {
-return this.find({questionNumber: id}, callback);
- };
+QuestionSchema.statics.getQuestion = function (id, callback) {
+this.findOne({questionNumber: id}).exec(function (err, question) {
+      if (err) {
+        console.log("in the model" + err);
+        return question;
+      }
+      
+      var text = question.question;
+      console.log("the question is: " + text);
+
+      return callback(text);
+    
+ })};
       
 
 module.exports = mongoose.model('Question', QuestionSchema);
