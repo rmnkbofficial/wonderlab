@@ -2,7 +2,6 @@ process.env.NODE_ENV = process.env.NODE_ENV
 || 'development';
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -15,6 +14,7 @@ var index = require('./routes/index');
 var about = require('./routes/about');
 var users = require('./routes/users');
 var signup = require('./routes/signup');
+var question1 = require('./routes/question1');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -39,6 +39,8 @@ app.use('/', index);
 app.use('/about', about);
 app.use('/users', users);
 app.use('/signup', signup);
+app.use('/question1', question1);
+
 var error = require('./config/error-handler');
 error(app);
 
@@ -70,14 +72,13 @@ module.exports = function() {
     app.set('views', path.join(__dirname, '../views'));
     app.set('view engine', 'ejs');
     if (process.env.NODE_ENV === 'development') {
-    app.use(logger('morgan'));
+    app.use(logger('dev'));
     } else if (process.env.NODE_ENV === 'production') {
     }
     return app;
 };
 //const express = require('./config/express');
 var mongoose = require('./config/mongoose');
-//var app = express();
 
 
 module.exports = app;

@@ -37,7 +37,7 @@ exports.login = function(req, res){
     else
     User.authenticate(id, pw, function(err){
     if (err) console.log(err);
-    else res.render('welcome', {"title": "Welcome", "name": this.firstName })
+    else res.render('welcome', {"title": "Welcome"})
     
     })
     });

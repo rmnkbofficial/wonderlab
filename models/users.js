@@ -72,7 +72,7 @@ UserSchema.methods.comparePassword = function(candidatePassword, hash, callback)
 
 UserSchema.statics.authenticate = function (email, password, callback) {
     this.findOne({ email: email })
-    .exec(function (err, user) {
+    .exec(function (err, user, result) {
       if (err) {
         return callback(err)
       } else if (!user) {
@@ -91,5 +91,7 @@ UserSchema.statics.authenticate = function (email, password, callback) {
       })
     });
 }
+
+
 
 module.exports = mongoose.model('User', UserSchema);
