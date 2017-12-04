@@ -35,12 +35,13 @@ exports.login = function(req, res){
     bcrypt.hash(pw, 10, function(err, hash) {
     if (err) console.log(err)
     else
-    User.authenticate(id, pw, function(err){
+    User.authenticate(id, pw, function(err, result){
     if (err) {
     console.log(err);
     alert("Wrong email or password.");
     }
-    else res.render('welcome', {"title": "Welcome"})
+    console.log(result);
+    res.render('welcome', {"title": "Welcome", "name": result.firstName })
     
     })
     });

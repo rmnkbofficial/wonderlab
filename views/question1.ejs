@@ -2,11 +2,28 @@
 <html>
     <head>
         <% include partials/head %>
-        <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
     </head>
     <body class="container">
                 <% include partials/header %>
-                 <p> <%=question%> </p>
+                <div id="questionContainer" class="form-group">
+                    <h2><%=question.question%></h2>
+    <label for="exampleFormControlSelect1"></label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option><%=question.option1%></option>
+      <option><%=question.option2%></option>
+      <option><%=question.option3%></option>
+      <option><%=question.option4%></option>
+      <option><input<%=question.option5%>></option>
+    </select>
+  </div>
     <footer><% include partials/footer %></footer>
     </body>
+    <style>
+       questionContainer {
+           display: flex;
+           justify-content: center;
+           
+       } 
+    </style>
 </html>

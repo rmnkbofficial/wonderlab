@@ -10,6 +10,7 @@ var flash    = require('connect-flash');
 var session = require('express-session');
 var app = express();
 
+var mongoose = require('./config/mongoose');
 var index = require('./routes/index');
 var about = require('./routes/about');
 var users = require('./routes/users');
@@ -78,7 +79,6 @@ module.exports = function() {
     return app;
 };
 //const express = require('./config/express');
-var mongoose = require('./config/mongoose');
 
 
 module.exports = app;
