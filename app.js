@@ -15,7 +15,8 @@ var index = require('./routes/index');
 var about = require('./routes/about');
 var users = require('./routes/users');
 var signup = require('./routes/signup');
-var question1 = require('./routes/question1');
+var question = require('./routes/question');
+var thanks = require('./routes/thanks');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -30,7 +31,7 @@ app.use(cookieParser());
 app.use(session(
   { secret: 'ramarama', 
   resave: true,
-  saveUninitialized: false
+  saveUninitialized: true
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -40,7 +41,8 @@ app.use('/', index);
 app.use('/about', about);
 app.use('/users', users);
 app.use('/signup', signup);
-app.use('/question1', question1);
+app.use('/question', question); 
+app.use('/thanks', thanks);
 
 var error = require('./config/error-handler');
 error(app);

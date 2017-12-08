@@ -4,9 +4,10 @@
         <% include partials/head %>
         <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     </head>
-    <body class="container">
+    <body class="container fun-cursor">
         <% include partials/header %>
-       <form class="form-signin" method="post" action="https://wonderlab-rmnkbofficial.c9users.io/users">
+        <main>
+       <form class="form-signin" method="post" action="/users">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
@@ -21,6 +22,32 @@
            Not a member?
         </label>
         <a href="/signup"> Sign up. </a>
+        </main>
     <footer><% include partials/footer %></footer>
     </body>
+    <style>
+    
+    .fun-cursor {
+        cursor: url('./images/watermelon.png'), default;
+    }
+    main {
+        height: 100%;
+        width: 100%;
+    }
+    h2   {
+        display: flex;
+        justify-content: center;
+    }
+        button {
+            background-color: #DDFFFC !important;
+            border: none !important;
+            font-family: monospace !important;
+            font-weight: bold;
+            color: black !important;
+        
+        }
+        a {
+    color: black !important;
+}
+    </style>
 </html>

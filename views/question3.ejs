@@ -8,14 +8,8 @@
                 <% include partials/header %>
     <div id="questionContainer" class="form-group">
     <h2><%=question.question%></h2>
-     <form action="/question/<%=qid%>" method="post">
-    <label for="exampleFormControlSelect1"></label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option><%=question.option1%></option>
-      <option><%=question.option2%></option>
-      <option><%=question.option3%></option>
-      <option><%=question.option4%></option>
-    </select>
+     <form action="/thanks" method="post">
+     <input type="text" class="form-control" required="">
   </div>
   <button class="btn btn-success btn-sm">
    ok </button>

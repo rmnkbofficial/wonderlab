@@ -3,9 +3,47 @@
     <head>
         <% include partials/head %>
         <link rel="stylesheet" type="text/css" href="./stylesheets/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
-    <body class="container">
+    <body background="./images/coco.jpg" class="container">
                 <% include partials/header %>
-    <footer><% include partials/footer %></footer>
+                <main>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" style="height: 100%, width: 100%">
+    <div class="item active">
+      <img src="./images/girl2.jpg" alt="Smile">
+    </div>
+
+    <div class="item">
+      <img src="./images/lips.jpg" alt="Gloss">
+    </div>
+     <div class="item">
+      <img src="./images/girl2.jpeg" alt="Live">
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+
+  </a>
+</div>
+                    
+    </main>
+    <footer><%include partials/footer%></footer>
     </body>
+    <style>
+        
+    </style>
 </html>

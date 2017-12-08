@@ -10,7 +10,7 @@ var QuizSchema = new Schema({
 },
     
     question: {
-    type: String
+        type: String
 },
     option1: { 
         type: String
@@ -37,8 +37,8 @@ this.findOne({questionNumber: id}).exec(function (err, question) {
         console.log("in the model" + err)
       };
       
-      var text = question.option3;
-      console.log("the question option3 is: " + text);
+      var text = question.question;
+      console.log("the question is: " + text);
 
     return callback(question);
     

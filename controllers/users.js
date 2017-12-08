@@ -19,7 +19,7 @@ let birthday = req.body.month + " " + req.body.day + " " + req.body.year;
 
 // hash pw and store user
 bcrypt.hash(pw, 10, function(err, hash) {
-    if (err) console.log(err)
+    if (err) console.log(err);
     else User.create({firstName: firstName, lastName: lastName, password: pw, instagram: insta, email: email, birthday: birthday, gender: gender, password : hash})
     res.render('users', {"title": "Login"})
 });
@@ -38,10 +38,11 @@ exports.login = function(req, res){
     User.authenticate(id, pw, function(err, result){
     if (err) {
     console.log(err);
-    alert("Wrong email or password.");
     }
-    console.log(result);
-    res.render('welcome', {"title": "Welcome", "name": result.firstName })
+    if (result == undefined) {
+          res.render('users', { "title": "Login"});
+    }
+    else res.render('welcome', {"title": "Welcome", "name": result.firstName }) 
     
     })
     });
