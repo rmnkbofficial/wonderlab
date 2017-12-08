@@ -1,8 +1,8 @@
 module.exports = {
-    db_uri: 'mongodb://rmnkbofficial-wonderlab-5711845:27017/db',
+    db_uri: 'mongodb://rmnkbofficial:pink4ever@ds135196.mlab.com:35196/wonderlab',
     db: function(callback) {
         var MongoClient = require('mongodb').MongoClient;
-        MongoClient.connect('mongodb://rmnkbofficial-wonderlab-5711845:27017/db', callback);
+        MongoClient.connect('mongodb://rmnkbofficial:pink4ever@ds135196.mlab.com:35196/wonderlab', callback);
     }
 };
 
