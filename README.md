@@ -1,4 +1,4 @@
-# rama
-a work in progress
+# Wonderlab
 
-Basic skeleton for a Node JS quiz application using Express and Bootstrap. Proof of concept only. Working demo can be found [here.](https://fierce-tor-42602.herokuapp.com/)
+I wanted to make an automated build-your-own-cosmetic startup with fully automated, consumer-facing conveyor belts and made a landing page for the project but abandoned it due to lack of funds 
+
